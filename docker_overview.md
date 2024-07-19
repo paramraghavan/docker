@@ -86,3 +86,33 @@ etc.
 
 Using Docker Compose, you can easily manage multi-container applications, ensuring that all components of your
 application start, stop, and communicate with each other as needed.
+
+
+
+### A Docker image does not contain the Docker engine
+Here’s a breakdown of the components and roles involved:
+
+#### Docker Image
+A Docker image is a lightweight, standalone, and executable package that includes everything needed to run a piece of software, including:
+
+* **Code**: The application or service you want to run.
+* **Runtime**: The necessary environment to execute the application (e.g., runtime libraries, dependencies).
+* **System** Tools: Utilities and tools that the application might need.
+* **Libraries**: Any libraries or dependencies required by the application.
+* **Configuration** Files: Settings and configurations necessary for the application to run properly.
+
+#### Docker Engine/Daemon
+The Docker engine, also known as the Docker daemon (dockerd), is a background service that manages and runs Docker containers. 
+
+It is responsible for:
+* **Building**: Constructing Docker images from Dockerfiles.
+* **Running**: Executing containers from Docker images.
+* **Managing**: Overseeing the entire lifecycle of containers, including starting, stopping, and removing containers.
+* **Networking**: Handling the networking aspects of containers, such as setting up bridges and managing IP addresses.
+* **Storage**: Managing data storage, volumes, and persistent storage for containers.
+
+#### Relationship Between Docker Images and Docker Engine
+* **Docker Images:** These are static templates used to create containers. They do not include the Docker engine.
+* **Docker Engine:** This is the runtime that executes Docker images by creating and managing containers.
+* When you use the command docker run <image>, the Docker client communicates with the Docker daemon. The daemon uses the specified Docker image to create a running container. 
+* The Docker engine needs to be installed and running on the host machine to manage the images and containers.
